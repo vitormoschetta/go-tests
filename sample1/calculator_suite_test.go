@@ -2,6 +2,7 @@ package sample1
 
 import (
 	"fmt"
+	"testing"
 
 	"github.com/stretchr/testify/suite"
 )
@@ -13,6 +14,14 @@ type CalculatorTestSuite struct {
 	expected int
 }
 
+// This will run before each test in the suite
+// Isso será executado antes de cada teste na suíte
+func TestSuite(t *testing.T) {
+	suite.Run(t, new(CalculatorTestSuite))
+}
+
+// This will run before each test in the suite
+// Isso será executado antes de cada teste na suíte
 func (suite *CalculatorTestSuite) SetupTest() {
 	fmt.Println("SetupTest")
 	suite.a = 4
